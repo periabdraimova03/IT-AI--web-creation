@@ -1,13 +1,13 @@
-# Freedom Trucking LLC - Premium Logistics Website
+# SisLove US - Premium Pajama & Loungewear Website
 
-A modern, premium-quality trucking company website built for Freedom Trucking LLC. This project features a responsive design, smooth animations, and a professional user interface tailored for the transportation and logistics industry.
+A modern, premium-quality boutique website built for SisLove US. This project features a luxury aesthetic, responsive design, and smooth animations, tailored for high-end pajamas and loungewear.
 
 ## Project Structure
 
 ```text
-├── index.html          # Main HTML structure
+├── index.html          # Main HTML structure with semantic elements
 ├── css/
-│   └── style.css       # Custom premium styles and animations
+│   └── style.css       # Custom premium styles, variables, and animations
 ├── js/
 │   └── script.js       # Interactivity, counters, and form validation
 ├── images/             # Local images directory
@@ -16,19 +16,19 @@ A modern, premium-quality trucking company website built for Freedom Trucking LL
 
 ## Features
 
-- **Premium Design:** Luxury aesthetic with a professional blue, white, and dark gray color palette.
+- **Premium Design:** Luxury aesthetic with a professional blue, white, pink, and creamy yellow color palette.
 - **Fully Responsive:** Optimized for desktop, tablet, and mobile devices.
 - **Interactive Elements:**
   - Sticky navigation bar
   - Mobile-responsive menu
-  - Animated statistics counters
+  - Animated statistics counters for brand values
   - Scroll-reveal animations
   - Smooth scrolling for anchor links
   - Functional "Scroll to Top" button
-- **Service Highlights:** Detailed cards for Dry Van, Reefer, Flatbed, and more.
-- **Quote Request:** Comprehensive form with client-side validation.
+- **Collection Showcase:** Beautifully designed cards for pajama sets.
+- **Quote Request:** Comprehensive form with client-side validation and visual feedback.
 - **Accessibility:** Semantic HTML, ARIA labels, and keyboard-friendly navigation.
-- **SEO Optimized:** Meta tags, Open Graph tags, and structured content.
+- **SEO Optimized:** Meta tags, Open Graph tags, and structured content for brand visibility.
 
 ## How to Run Locally
 
