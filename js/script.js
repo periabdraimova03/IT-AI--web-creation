@@ -1,4 +1,4 @@
-// Freedom Trucking LLC - Custom Scripts
+// SisLove US - Premium Pajama Shop Scripts
 
 document.addEventListener('DOMContentLoaded', () => {
     // Navigation & Mobile Menu
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (link.style.animation) {
                     link.style.animation = '';
                 } else {
-                    link.style.animation = `fadeIn 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
                 }
             });
 
@@ -72,19 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const updateCount = () => {
                 const target = +counter.getAttribute('data-target');
                 const count = +counter.innerText;
-                const decimal = counter.getAttribute('data-decimal');
                 const inc = target / speed;
 
                 if (count < target) {
-                    const nextValue = count + inc;
-                    if (decimal) {
-                        counter.innerText = nextValue.toFixed(decimal);
-                    } else {
-                        counter.innerText = Math.ceil(nextValue);
-                    }
+                    counter.innerText = Math.ceil(count + inc);
                     setTimeout(updateCount, 1);
                 } else {
-                    counter.innerText = decimal ? target.toFixed(decimal) : target;
+                    counter.innerText = target;
                 }
             }
             updateCount();
@@ -126,6 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+
+                // Update active link
+                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
             }
         });
     });
@@ -148,43 +146,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form Validation
+    // Form Validation & Submission
     const quoteForm = document.getElementById('quoteForm');
     if (quoteForm) {
         quoteForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Simple validation check
+            // Validation logic
             let isValid = true;
-            const inputs = quoteForm.querySelectorAll('input[required], select[required]');
+            const requiredFields = quoteForm.querySelectorAll('[required]');
 
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
                     isValid = false;
-                    input.style.borderColor = 'red';
+                    field.style.borderColor = '#ff4d4d';
                 } else {
-                    input.style.borderColor = '#ddd';
+                    field.style.borderColor = '#eeeeee';
                 }
             });
 
             if (isValid) {
-                // Mock success message
                 const submitBtn = quoteForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerText;
                 submitBtn.disabled = true;
-                submitBtn.innerText = 'Sending...';
+                submitBtn.innerText = 'Processing...';
 
+                // Simulate API call
                 setTimeout(() => {
-                    alert('Thank you! Your quote request has been sent successfully. Our team will contact you shortly.');
+                    alert('Thank you! Your quote request has been received. Our team will reach out to you at ' + quoteForm.email.value + ' within 24 hours.');
                     quoteForm.reset();
                     submitBtn.disabled = false;
                     submitBtn.innerText = originalText;
-                }, 2000);
+                }, 1500);
             }
         });
     }
 
     // Initial calls
     navSlide();
-    reveal(); // Check for visible elements on load
+    reveal();
 });
